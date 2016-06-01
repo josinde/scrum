@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
+import scrum.exercices.commandline.Register.Country;
 import scrum.exercices.commandline.Register.Type;
 
 public class Echo {
@@ -67,9 +68,12 @@ public class Echo {
     }
 
     private String addCount(String input){
+        
         Register.Type type = parseType(input);
+        Country country = parseCountry(input);
+        
         if(type != null){
-            register.add(type);
+            register.add(type, country);
             return Long.toString(Math.round(100 * register.getTotal()));
         }else{
             return "Unknown fruit '"+input+"'. Please type a valid type";
@@ -79,7 +83,11 @@ public class Echo {
     private Type parseType(String value){
         return register.getTypeFromString(value);
     }
-
+    
+    private Country parseCountry(String value){
+        return register.getCountryFromString(value);
+    }
+    
     public static void main(String[] args) {
         Echo echo = new Echo();
         echo.process(System.in, System.out);
