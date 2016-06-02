@@ -7,7 +7,7 @@
     <property name="test.class.name" value="scrum.exercices.commandline.TestEchoSrc" />
 	
     <path id="test.classpath">
-      <pathelement location="${classes}" />
+      <pathelement location="${build}" />
       <pathelement location="/path/to/junit.jar" />
       <fileset dir="${lib}">
         <include name="**/*.jar"/>
