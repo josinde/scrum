@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name="scrum" basedir=".">
+	
+    <property name="src" value="./src" />
+    <property name="lib" value="./lib" />
+    <property name="classes" value="./classes" />
+    <property name="test.class.name" value="scrum.exercices.commandline.TestEchoSrc" />
+	
+    <path id="test.classpath">
+      <pathelement location="${classes}" />
+      <pathelement location="/path/to/junit.jar" />
+      <fileset dir="${lib}">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
+    <target name="test">
+      <junit fork="yes" haltonfailure="yes">
+        <test name="${test.class.name}" />
+        <formatter type="xml" usefile="false" />
+        <classpath refid="test.classpath" />
+      </junit>
+    </target>
+	
+</project>
