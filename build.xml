@@ -8,18 +8,17 @@
 	
     <path id="test.classpath">
       <pathelement location="${classes}" />
-    <!--	
       <pathelement location="/path/to/junit.jar" />
       <fileset dir="${lib}">
         <include name="**/*.jar"/>
       </fileset>
-      -->
     </path>
 
     <target name="compile">
     	  <mkdir dir="${build}"/>
     	  <javac srcdir="${src}"
-    	         destdir="${build}"/>
+    	         destdir="${build}"
+    	  	     classpath refid="test.classpath"/>
     </target>	
 	
     <target name="test" depends="compile">
