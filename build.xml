@@ -3,7 +3,7 @@
 	
     <property name="src" value="./src" />
     <property name="lib" value="./lib" />
-    <property name="classes" value="./classes" />
+    <property name="build" value="./build" />
     <property name="test.class.name" value="scrum.exercices.commandline.TestEchoSrc" />
 	
     <path id="test.classpath">
@@ -16,7 +16,13 @@
       -->
     </path>
 
-    <target name="test">
+    <target name="compile">
+    	  <javac srcdir="${src}"
+    	         destdir="${build}"
+    	  />
+    </target>	
+	
+    <target name="test" depends="compile">
       <junit fork="yes" haltonfailure="yes">
         <test name="${test.class.name}" />
         <formatter type="xml" usefile="false" />
