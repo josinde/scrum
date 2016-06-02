@@ -14,11 +14,14 @@
       </fileset>
     </path>
 
-    <target name="compile">
-    	  <mkdir dir="${build}"/>
+	<target name="folders">
+        <mkdir dir="${build}"/>
+	</target>		
+	
+    <target name="compile" depends="folders">
     	  <javac srcdir="${src}"
     	         destdir="${build}"
-    	  	     classpath refid="test.classpath"/>
+    	  	     classpathref="test.classpath"/>
     </target>	
 	
     <target name="test" depends="compile">
