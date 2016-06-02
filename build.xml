@@ -17,9 +17,9 @@
     </path>
 
     <target name="compile">
+    	  <mkdir dir="${build}"/>
     	  <javac srcdir="${src}"
-    	         destdir="${build}"
-    	  />
+    	         destdir="${build}"/>
     </target>	
 	
     <target name="test" depends="compile">
